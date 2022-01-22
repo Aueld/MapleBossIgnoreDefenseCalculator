@@ -173,7 +173,7 @@ public class BossListLayout4 extends AppCompatActivity {
                 "\n 도로시\n ", " LV.210\n HP : 840,000,000,000 (8400억)", text_dpen,
                 text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "도로시 챌린저");
         // me
-            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.mev),
+            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.mef),
                     "\n 청은명월\n ", " LV.255\n", "감사합니다.",
                     "", "", "", "제로", "베라");
 

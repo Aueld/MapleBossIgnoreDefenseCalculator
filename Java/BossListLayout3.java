@@ -356,17 +356,17 @@ public class BossListLayout3 extends AppCompatActivity {
         // 78 황룡
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m61hwan),
                 "\n 78층\n 황룡\n ", " LV.260 /누적: 63조9362억9506만9750(+7%)\n HP : 4,535,000,000,000 (4조5350억)", text_dpen,
-                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "KMS 최고격파층");
+                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "");
         // 79 적호
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m62juck),
-                "\n 79층\n 적호\n ", " LV.260 /누적: 63조9362억9506만9750+@\n HP : -", text_dpen,
-                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "");
+                "\n 79층\n 적호\n ", " LV.260 /누적: 68조7932억9506만9750(+7%)\n HP : 4,857,000,000,000 (4조8570억)", text_dpen,
+                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "KMS 최고격파층");
         // 80 무공
         qkd = 200;
         rhks = defenseCalculator(qkd, seter);
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m63mogon),
-                "\n 80층\n 무공\n ", " LV.260 /누적: 102조9362억9506만9750+@\n HP : 20,000,000,000,000 (20조)", text_dpen,
+                "\n 80층\n 무공\n ", " LV.260 /누적: 107조7932억9506만9750(추정)\n HP : 20,000,000,000,000 (20조)", text_dpen,
                 text_perdmg, qus(qkd), qus(round(rhks, 1)), "전 속성 반감", "");
 
 

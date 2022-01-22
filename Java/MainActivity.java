@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity
     ActionBarDrawerToggle drawerToggle;
     Toolbar toolbar;
 
+    EditText ed[] = new EditText[21];
+    View vd;
+
+    int editText[] = new int[21];
     float ap;
     boolean as;
     String textSave = "";
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "레벨차이\n+20이상시 데미지 120%\n-20시 데미지 50%\n-40이하시 데미지 0%", Toast.LENGTH_LONG).show();
                 break;
             case 6:
-                Toast.makeText(getApplicationContext(), "2021. 11. 01 기준 정보 입니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "2021. 12. 18. 기준 정보 입니다.", Toast.LENGTH_SHORT).show();
             default:
                 break;
         }
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setEditText();
         auto_saving(as);
         initLayout();
         calculate();
@@ -75,40 +80,56 @@ public class MainActivity extends AppCompatActivity
         bossActivity4(); // other Boss
     }
 
+    private void setEditText(){
+        vd = findViewById(R.id.amc);
+
+        editText[0] = (R.id.fnum);
+        editText[1] = (R.id.addnum1);
+        editText[2] = (R.id.addnum2);
+        editText[3] = (R.id.addnum3);
+        editText[4] = (R.id.addnum4);
+        editText[5] = (R.id.addnum5);
+        editText[6] = (R.id.addnum6);
+        editText[7] = (R.id.addnum7);
+        editText[8] = (R.id.addnum8);
+        editText[9] = (R.id.addnum9);
+        editText[10] =(R.id.addnum10);
+        editText[11] = (R.id.addnum11);
+        editText[12] = (R.id.addnum12);
+        editText[13] = (R.id.addnum13);
+        editText[14] = (R.id.addnum14);
+        editText[15] = (R.id.addnum15);
+        editText[16] = (R.id.addnum16);
+        editText[17] = (R.id.addnum17);
+        editText[18] = (R.id.addnum18);
+        editText[19] = (R.id.addnum19);
+        editText[20] = (R.id.addnum20);
+
+
+        for(int i = 0; i < 21; i++)
+            ed[i] = (EditText) vd.findViewById(editText[i]);
+    }
+
+
     private void auto_saving(boolean save) {
-        View vd = findViewById(R.id.amc);
         SharedPreferences sharedPreferences = getSharedPreferences( "save", 0);
 
         as = sharedPreferences.getBoolean("saver", as);
         if(as){
 
-            EditText ed[] = new EditText[9];
-            SharedPreferences sharedPreferencesA[] = new SharedPreferences[9];
-            String sa[] = new String[9];
+            SharedPreferences sharedPreferencesA[] = new SharedPreferences[21];
+            String sa[] = new String[21];
 
-            ed[0] = (EditText) vd.findViewById(R.id.fnum);
-            ed[1] = (EditText) vd.findViewById(R.id.addnum1);
-            ed[2] = (EditText) vd.findViewById(R.id.addnum2);
-            ed[3] = (EditText) vd.findViewById(R.id.addnum3);
-            ed[4] = (EditText) vd.findViewById(R.id.addnum4);
-            ed[5] = (EditText) vd.findViewById(R.id.addnum5);
-            ed[6] = (EditText) vd.findViewById(R.id.addnum6);
-            ed[7] = (EditText) vd.findViewById(R.id.addnum7);
-            ed[8] = (EditText) vd.findViewById(R.id.addnum8);
+            String temp;
 
-
-            for(int i = 0; i < 9; i++)
+            for(int i = 0; i < 21; i++) {
                 sharedPreferencesA[i] = getSharedPreferences(textSave, 0);
-            sa[0] = sharedPreferencesA[0].getString("saveText0", "");
-            sa[1] = sharedPreferencesA[1].getString("saveText1", "");
-            sa[2] = sharedPreferencesA[2].getString("saveText2", "");
-            sa[3] = sharedPreferencesA[3].getString("saveText3", "");
-            sa[4] = sharedPreferencesA[4].getString("saveText4", "");
-            sa[5] = sharedPreferencesA[5].getString("saveText5", "");
-            sa[6] = sharedPreferencesA[6].getString("saveText6", "");
-            sa[7] = sharedPreferencesA[7].getString("saveText7", "");
-            sa[8] = sharedPreferencesA[8].getString("saveText8", "");
-            for(int i = 0; i < 9; i++)
+                temp = "saveText" + i;
+                sa[i] = sharedPreferencesA[i].getString(temp, "");
+            }
+
+
+            for(int i = 0; i < 21; i++)
                 ed[i].setText(sa[i]);
             Toast.makeText(getApplicationContext(), "불러오기 성공", Toast.LENGTH_LONG).show();
         }
@@ -118,9 +139,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void bossActivity1() { // weekly Boss
-        final View bd = findViewById(R.id.amc);
 
-        final Button bossButton1 = (Button) bd.findViewById(R.id.button);
+        final Button bossButton1 = (Button) vd.findViewById(R.id.button);
 
         bossButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,9 +167,8 @@ public class MainActivity extends AppCompatActivity
         });
     }
     private void bossActivity2() { // Daily Boss
-        final View bd = findViewById(R.id.amc);
 
-        final Button bossButton2 = (Button) bd.findViewById(R.id.button2);
+        final Button bossButton2 = (Button) vd.findViewById(R.id.button2);
 
         bossButton2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,9 +191,8 @@ public class MainActivity extends AppCompatActivity
         });
     }
     private void bossActivity3() { // mulun Boss
-        final View bd = findViewById(R.id.amc);
 
-        final Button bossButton3 = (Button) bd.findViewById(R.id.button3);
+        final Button bossButton3 = (Button) vd.findViewById(R.id.button3);
 
         bossButton3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,9 +235,8 @@ public class MainActivity extends AppCompatActivity
         });
     }
     private void bossActivity4() { // other Boss
-        final View bd = findViewById(R.id.amc);
 
-        final Button bossButton4 = (Button) bd.findViewById(R.id.button4);
+        final Button bossButton4 = (Button) vd.findViewById(R.id.button4);
 
         bossButton4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,39 +273,52 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void calculate() {
-        final View bd = findViewById(R.id.amc);
-
-        final Button cal = (Button) bd.findViewById(R.id.asmd);
+        final Button cal = (Button) vd.findViewById(R.id.asmd);
 
         cal.setOnClickListener(new View.OnClickListener() {
 
             float n;
 
-            float nArr[] = new float[] {0, 0, 0, 0, 0, 0, 0, 0};
+            float nArr[] = new float[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-            int MAX = 8;
+            int MAX = 20;
 
-            TextView result = (TextView) bd.findViewById(R.id.result);
-            TextView result2 = (TextView) bd.findViewById(R.id.result2);
+            TextView result = (TextView) vd.findViewById(R.id.result);
+            TextView result2 = (TextView) vd.findViewById(R.id.result2);
 
-            EditText numArr[] = new EditText[MAX];
-            EditText fnum = (EditText) bd.findViewById(R.id.fnum);
+            //EditText numArr[] = new EditText[MAX];
+            EditText fnum = (EditText) vd.findViewById(R.id.fnum);
 
             @Override
             public void onClick(View v) {
 
-                numArr[0] = (EditText) bd.findViewById(R.id.addnum1);
-                numArr[1] = (EditText) bd.findViewById(R.id.addnum2);
-                numArr[2] = (EditText) bd.findViewById(R.id.addnum3);
-                numArr[3] = (EditText) bd.findViewById(R.id.addnum4);
-                numArr[4] = (EditText) bd.findViewById(R.id.addnum5);
-                numArr[5] = (EditText) bd.findViewById(R.id.addnum6);
-                numArr[6] = (EditText) bd.findViewById(R.id.addnum7);
-                numArr[7] = (EditText) bd.findViewById(R.id.addnum8);
+//                for(int i = 0; i < MAX; i++)
+//                    numArr[i] = (EditText) bd.findViewById(editText[i + 1]);
+
+//                numArr[0] = (EditText) bd.findViewById(R.id.addnum1);
+//                numArr[1] = (EditText) bd.findViewById(R.id.addnum2);
+//                numArr[2] = (EditText) bd.findViewById(R.id.addnum3);
+//                numArr[3] = (EditText) bd.findViewById(R.id.addnum4);
+//                numArr[4] = (EditText) bd.findViewById(R.id.addnum5);
+//                numArr[5] = (EditText) bd.findViewById(R.id.addnum6);
+//                numArr[6] = (EditText) bd.findViewById(R.id.addnum7);
+//                numArr[7] = (EditText) bd.findViewById(R.id.addnum8);
+//                numArr[8] = (EditText) bd.findViewById(R.id.addnum9);
+//                numArr[9] = (EditText) bd.findViewById(R.id.addnum10);
+//                numArr[10] = (EditText) bd.findViewById(R.id.addnum11);
+//                numArr[11] = (EditText) bd.findViewById(R.id.addnum12);
+//                numArr[12] = (EditText) bd.findViewById(R.id.addnum13);
+//                numArr[13] = (EditText) bd.findViewById(R.id.addnum14);
+//                numArr[14] = (EditText) bd.findViewById(R.id.addnum15);
+//                numArr[15] = (EditText) bd.findViewById(R.id.addnum16);
+//                numArr[16] = (EditText) bd.findViewById(R.id.addnum17);
+//                numArr[17] = (EditText) bd.findViewById(R.id.addnum18);
+//                numArr[18] = (EditText) bd.findViewById(R.id.addnum19);
+//                numArr[19] = (EditText) bd.findViewById(R.id.addnum20);
 
                 for(int i = 0; i < MAX; i++){
-                    if(numArr[i].length() != 0)
-                        nArr[i] = Float.parseFloat(numArr[i].getText().toString());
+                    if(ed[i + 1].length() != 0)
+                        nArr[i] = Float.parseFloat(ed[i + 1].getText().toString());
                     else
                         nArr[i] = 0;
                 }
@@ -313,7 +343,9 @@ public class MainActivity extends AppCompatActivity
                     return;
                 }
 
-                ap = (1 - (100 - n) / 100 * (100 - nArr[0]) / 100 * (100 - nArr[1]) / 100 * (100 - nArr[2]) / 100 * (100 - nArr[3]) / 100 * (100 - nArr[4]) / 100 * (100 - nArr[5]) / 100 * (100 - nArr[6]) / 100 * (100 - nArr[7]) / 100) * 100;
+                ap = (1 - (100 - n) / 100 * (100 - nArr[0]) / 100 * (100 - nArr[1]) / 100 * (100 - nArr[2]) / 100 * (100 - nArr[3]) / 100 * (100 - nArr[4]) / 100 * (100 - nArr[5]) / 100 *
+                        (100 - nArr[6]) / 100 * (100 - nArr[7]) / 100 * (100 - nArr[8]) / 100 * (100 - nArr[9]) / 100 * (100 - nArr[10]) / 100 * (100 - nArr[11]) / 100 * (100 - nArr[12]) / 100 *
+                        (100 - nArr[13]) / 100 * (100 - nArr[14]) / 100 * (100 - nArr[15]) / 100 * (100 - nArr[16]) / 100 * (100 - nArr[17]) / 100 * (100 - nArr[18]) / 100 * (100 - nArr[19]) / 100) * 100;
 
                 result.setText(String.format("%.2f", ap));
 
@@ -344,39 +376,26 @@ public class MainActivity extends AppCompatActivity
         editor.commit();
 
         if(as){
-            SharedPreferences sharedPreferencesA[] = new SharedPreferences[9];
-            SharedPreferences.Editor editorA[] = new SharedPreferences.Editor[9];
-            EditText edd[] = new EditText[9];
-            String value[] = new String[9];
+            SharedPreferences sharedPreferencesA[] = new SharedPreferences[21];
+            SharedPreferences.Editor editorA[] = new SharedPreferences.Editor[21];
+            EditText edd[] = new EditText[21];
+            String value[] = new String[21];
 
 
-            for(int i = 0; i < 9; i++) {
+            for(int i = 0; i < 21; i++) {
                 sharedPreferencesA[i] = getSharedPreferences(textSave, 0);
                 editorA[i] = sharedPreferencesA[i].edit();
+                edd[i] = vdd.findViewById(editText[i]);
             }
 
-            edd[0] = vdd.findViewById(R.id.fnum);
-            edd[1] = vdd.findViewById(R.id.addnum1);
-            edd[2] = vdd.findViewById(R.id.addnum2);
-            edd[3] = vdd.findViewById(R.id.addnum3);
-            edd[4] = vdd.findViewById(R.id.addnum4);
-            edd[5] = vdd.findViewById(R.id.addnum5);
-            edd[6] = vdd.findViewById(R.id.addnum6);
-            edd[7] = vdd.findViewById(R.id.addnum7);
-            edd[8] = vdd.findViewById(R.id.addnum8);
-
-            for(int i = 0; i < 9; i++)
+            String temp;
+            for(int i = 0; i < 21; i++) {
                 value[i] = edd[i].getText().toString();
-            editorA[0].putString("saveText0", value[0]);
-            editorA[1].putString("saveText1", value[1]);
-            editorA[2].putString("saveText2", value[2]);
-            editorA[3].putString("saveText3", value[3]);
-            editorA[4].putString("saveText4", value[4]);
-            editorA[5].putString("saveText5", value[5]);
-            editorA[6].putString("saveText6", value[6]);
-            editorA[7].putString("saveText7", value[7]);
-            editorA[8].putString("saveText8", value[8]);
-            for(int i = 0; i < 9; i++)
+                temp = "saveText" + i;
+                editorA[i].putString(temp, value[i]);
+            }
+
+            for(int i = 0; i < 21; i++)
                 editorA[i].commit();
         }
 
@@ -394,6 +413,22 @@ public class MainActivity extends AppCompatActivity
             item.setIcon(R.drawable.pik);
             as = false;
             Toast.makeText(this, "최근 기록 불러오기 비활성화", Toast.LENGTH_SHORT).show();
+        }
+
+        if(item.getItemId() == R.id.re_set){
+            for(int i = 0; i < 21; i++){
+                ed[i].setText("");
+            }
+
+            TextView result = (TextView) vd.findViewById(R.id.result);
+            TextView result2 = (TextView) vd.findViewById(R.id.result2);
+
+            result.setText("");
+            result2.setText("");
+
+            ap = 0;
+
+            Toast.makeText(this, "지우기 완료", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
