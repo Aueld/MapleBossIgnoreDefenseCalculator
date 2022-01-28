@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "레벨차이\n+20이상시 데미지 120%\n-20시 데미지 50%\n-40이하시 데미지 0%", Toast.LENGTH_LONG).show();
                 break;
             case 6:
-                Toast.makeText(getApplicationContext(), "2021. 12. 18. 기준 정보 입니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.update_date, Toast.LENGTH_SHORT).show();
             default:
                 break;
         }
@@ -285,36 +285,10 @@ public class MainActivity extends AppCompatActivity
 
             TextView result = (TextView) vd.findViewById(R.id.result);
             TextView result2 = (TextView) vd.findViewById(R.id.result2);
-
-            //EditText numArr[] = new EditText[MAX];
             EditText fnum = (EditText) vd.findViewById(R.id.fnum);
 
             @Override
             public void onClick(View v) {
-
-//                for(int i = 0; i < MAX; i++)
-//                    numArr[i] = (EditText) bd.findViewById(editText[i + 1]);
-
-//                numArr[0] = (EditText) bd.findViewById(R.id.addnum1);
-//                numArr[1] = (EditText) bd.findViewById(R.id.addnum2);
-//                numArr[2] = (EditText) bd.findViewById(R.id.addnum3);
-//                numArr[3] = (EditText) bd.findViewById(R.id.addnum4);
-//                numArr[4] = (EditText) bd.findViewById(R.id.addnum5);
-//                numArr[5] = (EditText) bd.findViewById(R.id.addnum6);
-//                numArr[6] = (EditText) bd.findViewById(R.id.addnum7);
-//                numArr[7] = (EditText) bd.findViewById(R.id.addnum8);
-//                numArr[8] = (EditText) bd.findViewById(R.id.addnum9);
-//                numArr[9] = (EditText) bd.findViewById(R.id.addnum10);
-//                numArr[10] = (EditText) bd.findViewById(R.id.addnum11);
-//                numArr[11] = (EditText) bd.findViewById(R.id.addnum12);
-//                numArr[12] = (EditText) bd.findViewById(R.id.addnum13);
-//                numArr[13] = (EditText) bd.findViewById(R.id.addnum14);
-//                numArr[14] = (EditText) bd.findViewById(R.id.addnum15);
-//                numArr[15] = (EditText) bd.findViewById(R.id.addnum16);
-//                numArr[16] = (EditText) bd.findViewById(R.id.addnum17);
-//                numArr[17] = (EditText) bd.findViewById(R.id.addnum18);
-//                numArr[18] = (EditText) bd.findViewById(R.id.addnum19);
-//                numArr[19] = (EditText) bd.findViewById(R.id.addnum20);
 
                 for(int i = 0; i < MAX; i++){
                     if(ed[i + 1].length() != 0)
@@ -438,7 +412,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
     }
 
@@ -450,13 +423,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
 
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
     }

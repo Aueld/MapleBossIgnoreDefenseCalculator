@@ -24,9 +24,9 @@ public class BossListLayout3 extends AppCompatActivity {
         }
 
         ListView listview ;
-        ListViewAdapter adapter;
+        ListViewAdapter3 adapter;
 
-        adapter = new ListViewAdapter() ;
+        adapter = new ListViewAdapter3() ;
 
         listview = (ListView) findViewById(R.id.list);
         listview.setAdapter(adapter);
@@ -360,14 +360,14 @@ public class BossListLayout3 extends AppCompatActivity {
         // 79 적호
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m62juck),
                 "\n 79층\n 적호\n ", " LV.260 /누적: 68조7932억9506만9750(+7%)\n HP : 4,857,000,000,000 (4조8570억)", text_dpen,
-                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "KMS 최고격파층");
+                text_perdmg, qus(qkd), qus(round(rhks, 1)), "반감 없음", "");
         // 80 무공
         qkd = 200;
         rhks = defenseCalculator(qkd, seter);
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m63mogon),
-                "\n 80층\n 무공\n ", " LV.260 /누적: 107조7932억9506만9750(추정)\n HP : 20,000,000,000,000 (20조)", text_dpen,
-                text_perdmg, qus(qkd), qus(round(rhks, 1)), "전 속성 반감", "");
+                "\n 80층\n 무공\n ", " LV.260 /누적: 69조1935억9506만9750(+8%)\n HP : 5,257,300,000,000 (5조2573억)", text_dpen,
+                text_perdmg, qus(qkd), qus(round(rhks, 1)), "전 속성 반감", "KMS 최고격파층");
 
 
     }

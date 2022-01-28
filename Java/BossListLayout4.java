@@ -26,9 +26,9 @@ public class BossListLayout4 extends AppCompatActivity {
         }
 
         ListView listview ;
-        ListViewAdapter adapter;
+        ListViewAdapter4 adapter;
 
-        adapter = new ListViewAdapter() ;
+        adapter = new ListViewAdapter4() ;
 
         listview = (ListView) findViewById(R.id.list);
         listview.setAdapter(adapter);
