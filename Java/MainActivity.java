@@ -1,6 +1,7 @@
 package com.epeld.myapplication;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -10,8 +11,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -33,9 +37,12 @@ public class MainActivity extends AppCompatActivity
     EditText ed[] = new EditText[21];
     View vd;
 
+    int Level;
     int editText[] = new int[21];
     float ap;
     boolean as;
+    boolean levelSave;
+    boolean levelCheck;
     String textSave = "";
     //String textSave[] = new String[9];
 
@@ -70,8 +77,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         setEditText();
-        auto_saving(as);
+        auto_saving();
         initLayout();
         calculate();
         bossActivity1(); // weekly Boss
@@ -111,11 +119,17 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void auto_saving(boolean save) {
+    private void auto_saving() {
         SharedPreferences sharedPreferences = getSharedPreferences( "save", 0);
+        SharedPreferences sharedPreferenceslev = getSharedPreferences( "savelev", 0);
+        SharedPreferences sharedPreferenceslevel = getSharedPreferences( "savelevel", 0);
 
         as = sharedPreferences.getBoolean("saver", as);
+        levelSave = sharedPreferenceslev.getBoolean("saveLevel", levelSave);
+
         if(as){
+            if(levelSave)
+                Level = sharedPreferenceslevel.getInt("Level", Level);
 
             SharedPreferences sharedPreferencesA[] = new SharedPreferences[21];
             String sa[] = new String[21];
@@ -132,6 +146,8 @@ public class MainActivity extends AppCompatActivity
             for(int i = 0; i < 21; i++)
                 ed[i].setText(sa[i]);
             Toast.makeText(getApplicationContext(), "불러오기 성공", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "설정된 레벨 : "+Level, Toast.LENGTH_LONG).show();
+
         }
         else {
             //Toast.makeText(getApplicationContext(), "Off", Toast.LENGTH_LONG).show();
@@ -145,9 +161,12 @@ public class MainActivity extends AppCompatActivity
         bossButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(getApplicationContext(), BossListLayout.class);
+                Intent intent1 = new Intent(getApplicationContext(), BossListLayout.class);
 
-                intent3.putExtra("seter", ap);
+                intent1.putExtra("seter", ap);
+                intent1.putExtra("levelCheck", levelCheck);
+                intent1.putExtra("level", Level);
+
                 Random rn2 = new Random();
                 int randp2 = rn2.nextInt(8);
                 if(randp2 == 7) {
@@ -159,7 +178,7 @@ public class MainActivity extends AppCompatActivity
                 else{
                     rtt(randp2);
                 }
-                startActivity(intent3);
+                startActivity(intent1);
                 onStop();
 
 
@@ -197,9 +216,9 @@ public class MainActivity extends AppCompatActivity
         bossButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(), BossListLayout3.class);
+                Intent intent3 = new Intent(getApplicationContext(), BossListLayout3.class);
 
-                intent1.putExtra("seter", ap);
+                intent3.putExtra("seter", ap);
 
                 Random rn0 = new Random();
                 int randp0 = rn0.nextInt(6);
@@ -229,7 +248,7 @@ public class MainActivity extends AppCompatActivity
                 }
 
 
-                startActivity(intent1);
+                startActivity(intent3);
                 onStop();
             }
         });
@@ -349,7 +368,22 @@ public class MainActivity extends AppCompatActivity
         editor.putBoolean("saver", saveAs);
         editor.commit();
 
+        Boolean saveLev = levelSave;
+        SharedPreferences sharedPreferenceslev = getSharedPreferences("savelev", 0);
+        SharedPreferences.Editor editorlev = sharedPreferenceslev.edit();
+        editorlev.putBoolean("saveLevel", saveLev);
+        editorlev.commit();
+
         if(as){
+            if(levelSave){
+                int select = Level;
+                SharedPreferences sharedPreferenceslevel = getSharedPreferences("savelevel", 0);
+                SharedPreferences.Editor editorlevel = sharedPreferenceslevel.edit();
+                editorlevel.putInt("Level", select);
+                editorlevel.commit();
+
+            }
+
             SharedPreferences sharedPreferencesA[] = new SharedPreferences[21];
             SharedPreferences.Editor editorA[] = new SharedPreferences.Editor[21];
             EditText edd[] = new EditText[21];
@@ -371,26 +405,15 @@ public class MainActivity extends AppCompatActivity
 
             for(int i = 0; i < 21; i++)
                 editorA[i].commit();
+
         }
 
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.auto_save && !as) {
-            item.setIcon(R.drawable.hm);
-            as = true;
-//            Toast.makeText(this, "최근 내용 자동 저장 활성화", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "최근 기록 불러오기 활성화", Toast.LENGTH_SHORT).show();
-        }
-        else if (item.getItemId() == R.id.auto_save && as) {
-            item.setIcon(R.drawable.pik);
-            as = false;
-            Toast.makeText(this, "최근 기록 불러오기 비활성화", Toast.LENGTH_SHORT).show();
-        }
-
-        if(item.getItemId() == R.id.re_set){
-            for(int i = 0; i < 21; i++){
+    public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
+        if(item.getItemId() == R.id.re_set) {
+            for (int i = 0; i < 21; i++) {
                 ed[i].setText("");
             }
 
@@ -403,6 +426,80 @@ public class MainActivity extends AppCompatActivity
             ap = 0;
 
             Toast.makeText(this, "지우기 완료", Toast.LENGTH_SHORT).show();
+        }
+
+        if (item.getItemId() == R.id.auto_save && !as) {
+            item.setIcon(R.drawable.hm);
+            as = true;
+//            Toast.makeText(this, "최근 내용 자동 저장 활성화", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "최근 기록 불러오기 활성화", Toast.LENGTH_SHORT).show();
+        }
+        else if (item.getItemId() == R.id.auto_save && as) {
+            item.setIcon(R.drawable.pik);
+            as = false;
+            Toast.makeText(this, "최근 기록 불러오기 비활성화", Toast.LENGTH_SHORT).show();
+        }
+
+        if(item.getItemId() == R.id.set_level && !levelCheck) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+            alert.setTitle("캐릭터 레벨 입력")
+                    .setMessage("캐릭터의 레벨을 입력 해 주세요");
+            final EditText text_level = new EditText(this);
+            //text_level.setFilters(new InputFilter[] {});
+            text_level.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+            item.setTitle("레벨 설정 : ON");
+            alert.setView(text_level).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    try {
+                        Level = Integer.parseInt(text_level.getText().toString());
+
+                        if (Level > 300 || Level < 0) {
+                            Toast.makeText(getApplicationContext(), "잘못된 입력입니다. : " + Level, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        levelCheck = true;
+                        Toast.makeText(getApplicationContext(), "레벨 설정 Lv." + Level, Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+
+                        item.setTitle("레벨 설정 : OFF");
+                        Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+
+                    item.setTitle("레벨 설정 : OFF");
+                    Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            alert.show();
+        }
+        else if (item.getItemId() == R.id.set_level && levelCheck){
+
+            levelCheck = false;
+
+            item.setTitle("레벨 설정 : OFF");
+            Toast.makeText(this,  "레벨 설정 비활성화", Toast.LENGTH_SHORT).show();
+        }
+
+        if (item.getItemId() == R.id.auto_save_level && !levelSave) {
+            item.setIcon(R.drawable.hm);
+            levelSave = true;
+            Toast.makeText(this, "레벨 설정 저장 활성화", Toast.LENGTH_SHORT).show();
+        }
+        else if (item.getItemId() == R.id.auto_save_level && levelSave) {
+            item.setIcon(R.drawable.pik);
+            levelSave = false;
+            Toast.makeText(this, "레벨 설정 저장 비활성화", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
