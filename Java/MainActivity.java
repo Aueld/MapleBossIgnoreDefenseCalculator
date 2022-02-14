@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity
             ed[i] = (EditText) vd.findViewById(editText[i]);
     }
 
-
     private void auto_saving() {
         SharedPreferences sharedPreferences = getSharedPreferences( "save", 0);
         SharedPreferences sharedPreferenceslev = getSharedPreferences( "savelev", 0);
@@ -128,9 +127,10 @@ public class MainActivity extends AppCompatActivity
         levelSave = sharedPreferenceslev.getBoolean("saveLevel", levelSave);
 
         if(as){
-            if(levelSave)
+            if(levelSave) {
                 Level = sharedPreferenceslevel.getInt("Level", Level);
-
+                levelCheck = true;
+            }
             SharedPreferences sharedPreferencesA[] = new SharedPreferences[21];
             String sa[] = new String[21];
 
@@ -195,6 +195,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intent2 = new Intent(getApplicationContext(), BossListLayout2.class);
 
                 intent2.putExtra("seter", ap);
+                intent2.putExtra("levelCheck", levelCheck);
+                intent2.putExtra("level", Level);
 
                 Random rn = new Random();
                 int randp = rn.nextInt(6);
@@ -219,6 +221,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intent3 = new Intent(getApplicationContext(), BossListLayout3.class);
 
                 intent3.putExtra("seter", ap);
+                intent3.putExtra("levelCheck", levelCheck);
+                intent3.putExtra("level", Level);
 
                 Random rn0 = new Random();
                 int randp0 = rn0.nextInt(6);
@@ -262,6 +266,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent intent4 = new Intent(getApplicationContext(), BossListLayout4.class);
                 intent4.putExtra("seter", ap);
+                intent4.putExtra("levelCheck", levelCheck);
+                intent4.putExtra("level", Level);
 
                 Random rn4 = new Random();
                 int randp4 = rn4.nextInt(9);
@@ -457,14 +463,15 @@ public class MainActivity extends AppCompatActivity
                     try {
                         Level = Integer.parseInt(text_level.getText().toString());
 
-                        if (Level > 300 || Level < 0) {
+                        if (Level > 300 || Level < 1) {
                             Toast.makeText(getApplicationContext(), "잘못된 입력입니다. : " + Level, Toast.LENGTH_SHORT).show();
                             return;
                         }
 
                         levelCheck = true;
                         Toast.makeText(getApplicationContext(), "레벨 설정 Lv." + Level, Toast.LENGTH_SHORT).show();
-                    } catch (Exception e) {
+                    } catch (NullPointerException e) {
+                        levelCheck = false;
 
                         item.setTitle("레벨 설정 : OFF");
                         Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
@@ -472,9 +479,11 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-            alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            alert.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
-                public void onDismiss(DialogInterface dialog) {
+                public void onCancel(DialogInterface dialog) {
+
+                    levelCheck = false;
 
                     item.setTitle("레벨 설정 : OFF");
                     Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
