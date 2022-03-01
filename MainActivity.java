@@ -475,6 +475,16 @@ public class MainActivity extends AppCompatActivity
 
                         item.setTitle("레벨 설정 : OFF");
                         Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
+                    } catch (NumberFormatException e) {
+                        levelCheck = false;
+
+                        item.setTitle("레벨 설정 : OFF");
+                        Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        levelCheck = false;
+
+                        item.setTitle("레벨 설정 : OFF");
+                        Toast.makeText(getApplicationContext(), "잘못된 입력입니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
