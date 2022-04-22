@@ -56,23 +56,23 @@ public class BossListLayout extends AppCompatActivity {
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.sig),
                 "\n 이지\n 시그너스\n ", " LV.140\n HP : 10,500,000,000 (105억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 140), 1)),"전 속성 반감", "결정석 : 5,588,951");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 140), 1)),"전 속성 반감", "결정석 : 5,496,706");
         // 하드 힐라
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hhil),
                 "\n 하드 힐라\n ", " LV.190\n HP : 16,800,000,000 (168억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign,190), 1)), "전 속성 반감", "결정석 : 7,042,594");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign,190), 1)), "전 속성 반감", "결정석 : 6,939,853");
         // 카오스 핑크빈
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.pik),
                 "\n 카오스\n 핑크빈\n ", " LV.190\n HP : 219,043,332,045\n (약 2200억 / 모든 석상 포함)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 8,043,127");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 7,926,887");
         // 노말 시그너스
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.sig),
                 "\n 노말\n 시그너스\n ", " LV.190\n HP : 63,000,000,000 (630억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,171,207");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,043,175");
         // 카오스 자쿰
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.zak),
                 "\n 카오스 자쿰\n ", " LV.180\n HP : 84,000,000,000 (840억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 180), 1)), "전 속성 반감", "결정석 : 9,912,590");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 180), 1)), "전 속성 반감", "결정석 : 9,747,264");
 
         // 카오스 블러디 퀸
         Dfs = 120;
@@ -80,21 +80,21 @@ public class BossListLayout extends AppCompatActivity {
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.blo),
                 "\n 카오스\n 블러디 퀸\n ", " LV.190\n HP : 140,000,000,000 (1400억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,974,296");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,812,516");
 
         // 카오스 반반
         Dfs = 100;
         Ign = defenseCalculator(Dfs, seter);
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.banb),
                 "\n 카오스 반반\n ", " LV.190\n HP : 100,000,000,000 (1000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,983,438");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 9,823,759");
 
         // 카오스 피에르
         Dfs = 80;
         Ign = 100 - (Dfs - (Dfs * seter / 100));
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.pie),
                 "\n 카오스\n 피에르\n ", " LV.190\n HP : 80,000,000,000 (800억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감(특수)", "결정석 : 10,003,842");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감(특수)", "결정석 : 9,844,508");
 
         // 하드 매그너스
         Dfs = 120;
@@ -102,104 +102,104 @@ public class BossListLayout extends AppCompatActivity {
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.mag),
                 "\n 하드\n 매그너스\n ", " LV.190\n HP : 120,000,000,000 (1200억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 11,768,153");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 11,585,306");
         // 카오스 벨룸
         Dfs = 200;
         Ign = defenseCalculator(Dfs, seter);
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.bel),
                 "\n 카오스 벨룸\n ", " LV.190\n HP : 200,000,000,000 (2000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 12,816,243");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 12,598,198");
         // 카오스 파풀라투스
         Dfs = 250;
         Ign = defenseCalculator(Dfs, seter);
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.pap),
                 "\n 카오스\n 파풀라투스\n ", " LV.190\n HP : 504,000,000,000\n (5040억 / 본체 포함)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 26,748,707");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 190), 1)), "전 속성 반감", "결정석 : 26,727,691");
         // 노말 스우
         Dfs = 300;
         Ign = defenseCalculator(Dfs, seter);
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.suu),
                 "\n 노말 스우\n ", " LV.210\n HP : 1,500,000,000,000 (1조5000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)), "전 속성 반감", "결정석 : 33,951,746");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)), "전 속성 반감", "결정석 : 33,940,059");
         // 노말 데미안
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.dem),
                 "\n 노말 데미안\n ", " LV.210\n HP : 1,200,000,000,000 (1조2000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)),"전 속성 반감", "결정석 : 35,513,060");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)),"전 속성 반감", "결정석 : 35,519,170");
 
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.gas),
                 "\n 노말 가디언\n 엔젤 슬라임\n ", " LV.220\n HP : 5,000,000,000,000\n (5조 / 1분마다 +1000억 회복)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 220), 1)),"전 속성 반감", "결정석 : 46,963,583");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 220), 1)),"전 속성 반감", "결정석 : 46,939,012");
 
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.lus),
                 "\n 이지 루시드\n ", " LV.230\n HP : 12,000,000,000,000 (12조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 48,073,070");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 48,062,097");
 
 
         // 이지 윌
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.wil),
                 "\n 이지 윌\n ", " LV.235\n HP : 16,501,400,000,000 (16조5014억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 235), 1)),"전 속성 반감", "결정석 : 52,139,172");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 235), 1)),"전 속성 반감", "결정석 : 52,132,323");
 
         // 노말 루시드
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.nlu),
                 "\n 노말 루시드\n ", " LV.230\n HP : 24,000,000,000,000 (24조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 57,499,163");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 57,506,348");
 
         // 노말 윌
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.wil),
                 "\n 노말 윌\n ", " LV.250\n HP : 25,200,000,000,000 (25조2000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 66,338,315");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 66,311,500");
         // 노말 더스크
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.dusk),
                 "\n 노말 더스크\n ", " LV.255\n HP : 26,000,000,000,000 (26조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 255), 1)),"전 속성 반감", "결정석 : 71,082,302");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 255), 1)),"전 속성 반감", "결정석 : 71,055,216");
         // 노말 듄켈
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.diu1),
                 "\n 노말 듄켈\n ", " LV.265\n HP : 26,000,000,000,000 (26조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 265), 1)),"전 속성 반감", "결정석 : 76,614,366");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 265), 1)),"전 속성 반감", "결정석 : 76,583,201");
 
         // 하드 데미안
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hdem),
                 "\n 하드 데미안\n ", " LV.225\n HP : 36,000,000,000,000 (36조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 225), 1)),"전 속성 반감", "결정석 : 112,371,919");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 225), 1)),"전 속성 반감", "결정석 : 112,492,768");
         // 하드 스우
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hsuu),
                 "\n 하드 스우\n ", " LV.210\n HP : 32,700,000,000,000\n (32조7000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)),"전 속성 반감", "결정석 : 118,142,788");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 210), 1)),"전 속성 반감", "결정석 : 118,299,822");
         // 하드 루시드
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hlus),
                 "\n 하드 루시드\n ", " LV.230\n HP : 117,368,500,000,000\n (117조3685억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 130,547,052");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 230), 1)),"전 속성 반감", "결정석 : 131,097,951");
         // 하드 윌
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.hwil),
                 "\n 하드 윌\n ", " LV.250\n HP : 126,000,000,000,000 (126조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 144,402,972");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 145,039,955");
         // 노말 진힐라
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.jinhil),
                 "\n 노말 진힐라\n ", " LV.250\n HP : 132,000,000,000,000 (132조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 147,124,901");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 148,096,053");
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.gas),
                 "\n 카오스 가디언\n 엔젤 슬라임\n ", " LV.250\n HP : 115,500,000,000,000\n (115조 5000억 / 1분마다 +2조 3100억 회복)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 153,587,678");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 155,415,587");
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.dusk),
                 "\n 카오스 더스크\n ", " LV.255\n HP : 114,600,000,000,000 (114조6000억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 255), 1)),"전 속성 반감", "결정석 : 157,677,506");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 255), 1)),"전 속성 반감", "결정석 : 160,048,846");
 
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.diu1),
                 "\n 하드 듄켈\n ", " LV.265\n HP : 127,000,000,000,000 (127조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 265), 1)),"전 속성 반감", "결정석 : 165,926,113");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 265), 1)),"전 속성 반감", "결정석 : 168,472,412");
 
         // 하드 진힐라
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.jinhil),
                 "\n 하드 진힐라\n ", " LV.250\n HP : 176,000,000,000,000 (176조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 187,310,727");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 250), 1)),"전 속성 반감", "결정석 : 190,014,586");
 
         Dfs = 380;
         Ign = defenseCalculator(Dfs, seter);
@@ -207,19 +207,19 @@ public class BossListLayout extends AppCompatActivity {
         // 선택받은 세렌
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.seran),
                 " 노말\n 선택받은\n 세렌\n ", " LV.275\n HP : 300,640,000,000,000 (300조6400억)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 193,300,776");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 196,696,508");
 
         // 선택받은 세렌
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.serh),
                 " 하드\n 선택받은\n 세렌\n ", " LV.275\n HP : 456,000,000,000,000 (456조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 262,581,502");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 267,508,904");
 
         Dfs = 330;
         Ign = defenseCalculator(Dfs, seter);
 
         // 칼로스
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.kalo1),
-                " 카오스\n 감시자\n 칼로스 1P\n ", " LV.275\n HP : - ", text_dpen,
+                " 카오스\n 감시자\n 칼로스 1P\n ", " LV.275\n HP : 337,950,000,000,000 (337조9500억) ", text_dpen,
                 text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 300,000,000");
 
         Dfs = 380;
@@ -245,7 +245,7 @@ public class BossListLayout extends AppCompatActivity {
         // 하드 검은 마법사 2, 3, 4P
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.bm),
                 "\n 검은 마법사\n ", " LV.275\n HP : 435,000,000,000,000 (435조)", text_dpen,
-                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 1,406,233,780");
+                text_perdmg, doubleToString(Dfs), doubleToString(Calc(levelDamageCal(Ign, 275), 1)),"전 속성 반감", "결정석 : 1,418,809,857");
     }
 
     public void onBackPressed() {
