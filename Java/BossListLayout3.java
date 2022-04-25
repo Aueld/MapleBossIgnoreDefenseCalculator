@@ -353,7 +353,7 @@ public class BossListLayout3 extends AppCompatActivity {
                 text_perdmg, doubleToString(Dfs), doubleToString(calc(levelDamageCal(Ign, 260), 1)), "반감 없음", "");
         // 75 봉선
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m58bong),
-                "\n 75층\n 봉선\n ", " LV.260 /누적: 51조2762억9506만9750(+8%)\n HP : 3,570,000,000,000 (3조57000억)", text_dpen,
+                "\n 75층\n 봉선\n ", " LV.260 /누적: 51조2762억9506만9750(+8%)\n HP : 3,570,000,000,000 (3조5700억)", text_dpen,
                 text_perdmg, doubleToString(Dfs), doubleToString(calc(levelDamageCal(Ign, 260), 1)), "반감 없음", "");
         // 76 오공
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.m59ogon),
